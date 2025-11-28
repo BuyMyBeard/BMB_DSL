@@ -1,7 +1,7 @@
 # BMB_DSL
 <img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/bc4c1ad0-22ae-43eb-aaff-fe0cc45428c0" />
 
-**BMB_DSL** is the domain-specific language used to author dialogue trees for **Adventure64**.
+**BMB_DSL** is the domain-specific language used to author dialogue trees for **Project Adventure64**.
 It’s built to be readable, compact, and friendly for designers who prefer writing over clicking. The language mirrors the structure of the dialogue nodes, supports conditions and options, and includes a few special keywords for the Adventure64 Dialogue System.
 
 This extension adds syntax highlighting and editor quality-of-life tools for `.bmbd` and `.bmbdsl` files in VSCode.
