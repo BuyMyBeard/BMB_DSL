@@ -1,0 +1,25 @@
+{
+  "name": "bmb_dsl",
+  "displayName": "BMB_DSL",
+  "description": "Syntax highlighting for the BuyMyBeard Dialogue System Language",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "bmbdsl",
+      "aliases": ["BMB_DSL", "bmbdsl"],
+      "extensions": [".bmbd",".bmbdsl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "bmbdsl",
+      "scopeName": "source.bmbdsl",
+      "path": "./syntaxes/bmbdsl.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "BMB_DSL",
+	"patterns": [
+		{ "include": "#comments"},
+		{ "include": "#strings" },
+		{ "include": "#labels"},
+		{ "include": "#keywords" },
+		{ "include": "#hookevents" }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.bmbdsl",
+				"match": "(?i)\\b(OPTIONS|ENDOPTIONS|IF|ELSE|BRANCH|JUMP|END|HOOK|SHOP)\\b"
+			}]
+		},
+		"comments": {
+			"name": "comment.line.bmbdsl",
+			"patterns": [
+				{
+					"name": "comment.line.hashtag.bmbdsl",
+					"match": "^#.*$"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.bmbdsl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.bmbdsl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"labels": {
+			"name": "entity.name.label.bmbdsl",
+			"begin": "\\[",
+			"end": "\\]"
+		},
+		"hookevents": {
+			"patterns": [{
+				"name": "constant.language.hookevent.bmbdsl",
+				"match": "(?i)\\b(OnAdvance|OnEnter|OnSelect)\\b"
+			}]
+		}
+	},
+	"scopeName": "source.bmbdsl"
+}
