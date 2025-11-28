@@ -2,8 +2,9 @@
   "name": "bmbdsl",
   "displayName": "BMB_DSL",
   "description": "Syntax highlighting for the BuyMyBeard Dialogue System Language",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "BuyMyBeard",
+  "icon": "./icon.png",
   "repository": {
     "url": "https://github.com/BuyMyBeard/BMB_DSL"
   },
