@@ -19,23 +19,25 @@ BMB_DSL is composed of statements.
 
 Here is a SimpleDialogue statement:
 
-```
+```bmbdsl
 [Dialogue 1] "Hello, how are you?"
 ```
 
-`[Dialogue 1]` is a **label**. it identifies a node in the dialogue tree. They are always surrounded by square brackets `[ ]`
-`"Hello, how are you?"` is a string. It is the dialogue itself. They are always surrounded by quotation marks `" "`
+`[Dialogue 1]` is a **label**. it identifies a node in the dialogue tree. They are always surrounded by square brackets `[ ]`.
+
+`"Hello, how are you?"` is a string. It is the dialogue itself. They are always surrounded by quotation marks `" "`.
 
 The string can also be replaced by a string table entry path, like so:
 
-```
+```bmbdsl
 [Dialogue 1] Gameplay.World.NpcDialogue.DIALOGUE_1
 ```
 
 A SimpleDialogue statement chains into the next statement automatically. 
+
 Identation is optional and does not affect the structure, which means all these variations are valid:
 
-```
+```bmbdsl
 # Same Identation
 [Dialogue 1] "Hello, how are you?"
 [Dialogue 2] "I have lots to say to you."
@@ -48,13 +50,14 @@ Identation is optional and does not affect the structure, which means all these 
 [Dialogue 1] "Hello, how are you?" [Dialogue 2] "I have lots to say to you."
 ```
 Comments may be added using #, but only when the # appears at the very start of a line. 
+
 Comments cannot follow statements or appear mid-line.
 
 If there is no next statement, the keyword `END` can be used.
 
 Keywords are case-insensitive.
 
-```
+```bmbdsl
 [Dialogue 1] "We are done speaking."
   End
 
@@ -64,7 +67,7 @@ Keywords are case-insensitive.
 
 A BranchNode statement is made using the `BRANCH`, `IF` and `ELSE` keywords.
 
-```
+```bmbdsl
 Branch [Options Dialogue]
 If Condition1
   [Branch 1] "Condition1 was met."
@@ -86,7 +89,7 @@ They match the name of existing Conditions in Adventure64, and will cause a comp
 
 An OptionsDialogue statement is made with the `OPTIONS` and `ENDOPTIONS` keywords.
 
-```
+```bmbdsl
 Options [Option Dialogue] "What will you pick?"
 - "Yes"
   [Option 1] "You answered yes." End
@@ -98,14 +101,17 @@ EndOptions
 ```
 
 All the options have to be preceeded by a `-`.
+
 They are refered as a DialogueOption.
+
 They take a string or table entry path, and are followed by a statement.
+
 The keyword `ENDOPTIONS` marks the end of the options list and is required.
 
 ### Jump Statement
 
 A Jump statement is made with the `JUMP` keyword.
-```
+```bmbdsl
 Jump [Dialogue 1]
 ```
 It is followed by a label, and indicates a jump to an existing node.
@@ -117,7 +123,7 @@ The language also supports hooks.
 
 Hooks are written with the `HOOK` keyword.
 
-```
+```bmbdsl
 Hook OnEnter=PlaySound
 ```
 `OnEnter` is the event name.
@@ -125,7 +131,7 @@ Hook OnEnter=PlaySound
 
 hooks have to match the name of an existing hook in Adventure64, and will cause a compilation error if they don't.
 
-```
+```bmbdsl
 Branch [Branch Node]
 If Condition
 # When the node is entered, the hook will be triggered
@@ -146,6 +152,7 @@ Else
 Hooks only apply to the statement immediately following them.
 
 Here are the supported hooks for each type of statement.
+
 | Statement / Event       | OnEnter | OnAdvance | OnSelect |
 |-------------------------|:-------:|:---------:|:--------:|
 | **SimpleDialogue**      |   ✔️    |     ✔️     |    ✖️     |
